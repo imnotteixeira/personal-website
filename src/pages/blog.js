@@ -65,9 +65,7 @@ const IndexPage = ({ data }) => (
                                 {node.frontmatter.date}
                             </ArticleDate>
                             <ReadingTime>
-                                {" "}
-                                -
-                                {node.fields.readingTime.text}
+                                {` - ${node.fields.readingTime.text}`}
                             </ReadingTime>
                         </div>
                         <p>
