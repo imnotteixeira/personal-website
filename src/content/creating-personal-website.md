@@ -7,7 +7,8 @@ path: "/blog/creating-personal-website"
 
 ## Hello World
 
-Everything starts like this, right? 
+Everything starts like this, right?
+<!-- end_excerpt -->
 
 ## Why did I do this?
 
