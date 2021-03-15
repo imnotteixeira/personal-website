@@ -17,6 +17,15 @@ const ArticleDate = styled.h5`
   color: #606060;
 `;
 
+const Badge = styled.h3`
+  display: inline;
+  font-size: 0.85rem;
+    background-color: #d90909;
+    color: white;
+    border-radius: 10px;
+    padding: .3rem;
+    margin-right: 1em;
+`;
 const MarkerHeader = styled.h3`
   display: inline;
   
@@ -43,6 +52,7 @@ const IndexPage = ({ data }) => (
             <h1>Blog</h1>
             {data.allMarkdownRemark.edges
                 .filter(({ node }) => {
+                    if (process.env.NODE_ENV === "production" && node.frontmatter.draft) return false;
                     const rawDate = node.frontmatter.rawDate;
                     const date = new Date(rawDate);
                     return date < new Date();
@@ -56,6 +66,7 @@ const IndexPage = ({ data }) => (
                   color: inherit;
                 `}
                         >
+                            {node.frontmatter.draft && <Badge>DRAFT</Badge>}
                             <MarkerHeader>
                                 {node.frontmatter.title}
                             </MarkerHeader>
@@ -88,7 +99,6 @@ export const query = graphql`
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { draft: { eq: false } } }
     ) {
       totalCount
       edges {
@@ -99,6 +109,7 @@ export const query = graphql`
             date(formatString: "DD MMMM, YYYY")
             rawDate: date
             path
+            draft
           }
           fields {
             slug
