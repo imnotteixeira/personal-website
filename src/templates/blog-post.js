@@ -52,7 +52,11 @@ const MarkdownContent = styled.div`
 
   code:not(pre code) {
       color: rgba(255, 250, 150, 0.8);
+      padding-left: 0.5em;
+      padding-right: 0.5em;
+      display: inline-block;
   }
+
 `;
 
 export default ({ data }) => {

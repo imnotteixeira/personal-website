@@ -442,7 +442,7 @@ const DesktopVersion = () => {
 
 And that's it! I hope this was helpful to you, and I'll certainly experiment more with this pattern and improve it in the future.
 
-If you liked it or have suggestions, contact me on twitter ([@tngelo_aeixeira](https://twitter.com/tngelo_aeixeira)) or email me at <a href="mailto:imnotteixeira@gmail.com">imnotteixeira@gmail.com</a>
+If you liked it or have suggestions, contact me on twitter ([@ateixeira_dev](https://twitter.com/ateixeira_dev)) or email me at <a href="mailto:imnotteixeira@gmail.com">imnotteixeira@gmail.com</a>
 
 ---
 
