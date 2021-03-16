@@ -584,6 +584,9 @@ code {
     "Liberation Mono", Menlo, Courier, monospace;
   padding: 0;
 }
+pre[class*="language-"] {
+    white-space: pre;
+}
 pre code {
   background: none;
   line-height: 1.42;
