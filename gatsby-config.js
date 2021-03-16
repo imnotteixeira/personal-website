@@ -28,13 +28,23 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         "excerpt_separator": `<!-- end_excerpt -->`,
-        plugins: [`gatsby-remark-reading-time`, {
-          resolve: `gatsby-remark-prismjs`,
-          options: {
-            aliases:{sh: "bash", js:"javascript"},
-            showLineNumbers: true,
-          }
-        }],
+        plugins: [
+            `gatsby-remark-reading-time`, {
+                resolve: `gatsby-remark-prismjs`,
+                options: {
+                    aliases:{sh: "bash", js:"javascript"},
+                    showLineNumbers: true,
+                }
+            },
+            {
+                resolve: 'gatsby-remark-images',
+                options: {
+                  linkImagesToOriginal: false,
+                },
+            },
+            `gatsby-remark-images-zoom`,
+            `gatsby-remark-copy-linked-files`
+        ],
       },
     },
     {

@@ -41,6 +41,18 @@ const MarkdownContent = styled.div`
   a > code:hover {
     text-decoration: underline;
   }
+
+  blockquote {
+      background-color: rgba(255, 250, 150, 0.8);
+      font-style: italic;
+      padding: 1em;
+      border-radius: 10px;
+      color: #555
+  }
+
+  code:not(pre code) {
+      color: rgba(255, 250, 150, 0.8);
+  }
 `;
 
 export default ({ data }) => {
