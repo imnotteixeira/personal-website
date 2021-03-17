@@ -586,6 +586,7 @@ code {
 }
 pre[class*="language-"] {
     white-space: pre;
+    word-wrap:normal;
 }
 pre code {
   background: none;
