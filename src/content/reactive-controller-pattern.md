@@ -9,6 +9,11 @@ Ever had to design a web application for mobile and desktop in React? What happe
 <!-- end_excerpt -->
 I, too, have recently found myself in a similar situation. I decided I would tackle this problem by creating two different components (and respective sub-trees) for mobile and desktop designs.
 
+[[warning | WARNING]]
+| After writing and experimenting more with this pattern, I found some issues which I describe in the next post [Reactive Controller Pattern: The chaos in returning Components from React Hooks](/blog/reactive-controller-pattern-update).
+| <br><br>
+| I recommend you to read it after this article to be aware of the problem and understand how to fix it!
+
 ```jsx
 const DesktopVersion = () => (
     <BigComponent>
@@ -443,6 +448,11 @@ const DesktopVersion = () => {
 And that's it! I hope this was helpful to you, and I'll certainly experiment more with this pattern and improve it in the future.
 
 If you liked it or have suggestions, contact me on twitter ([@ateixeira_dev](https://twitter.com/ateixeira_dev)) or email me at <a href="mailto:imnotteixeira@gmail.com">imnotteixeira@gmail.com</a>
+
+[[warning | WARNING]]
+| After writing and experimenting more with this pattern, I found some issues which I describe in the next post [Reactive Controller Pattern: The chaos in returning Components from React Hooks](/blog/reactive-controller-pattern-update).
+| <br><br>
+| I recommend you to read it after this article to be aware of the problem and understand how to fix it!
 
 ---
 

@@ -46,7 +46,7 @@ const MarkdownContent = styled.div`
       background-color: rgba(255, 250, 150, 0.8);
       font-style: italic;
       padding: 1em;
-      border-radius: 10px;
+      border-radius: 0.3em;
       color: #555
   }
 
@@ -55,6 +55,35 @@ const MarkdownContent = styled.div`
       padding-left: 0.5em;
       padding-right: 0.5em;
       display: inline-block;
+  }
+
+  .custom-block {
+      padding: 1em;
+      border-radius: 0.3em;
+      margin-bottom: 1rem;
+  }
+  
+  .custom-block-heading {
+      font-weight: bold;
+  }
+  .custom-block-body {
+      margin-top: 1rem;
+  }
+  .custom-block-body p {
+      margin-bottom: 0;
+  }
+
+  .custom-block.hidden {
+      display: none;
+  }
+  .custom-block.info {
+      background-color: rgba(66, 166, 189, 0.3)
+  }
+  .custom-block.warning {
+      background-color: rgba(230, 206, 80, 0.3)
+  }
+  .custom-block.danger {
+      background-color: rgba(230, 80, 80, 0.3)
   }
 
 `;
