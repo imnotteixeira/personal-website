@@ -19,6 +19,7 @@ function SEO({ description, lang, meta, keywords, title }) {
             title
             description
             author
+            shareImage
           }
         }
       }
@@ -50,6 +51,10 @@ function SEO({ description, lang, meta, keywords, title }) {
         {
           property: `og:type`,
           content: `website`,
+        },
+        {
+            property: `og:image`,
+            content: site.siteMetadata.shareImage,
         },
         {
           name: `twitter:card`,

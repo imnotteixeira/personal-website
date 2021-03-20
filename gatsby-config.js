@@ -4,6 +4,7 @@ module.exports = {
         subtitles: ["software developer", "software enthusiast", "software learner", "software builder", "software explorer"],
         description: `It's a blog with some extras about me, I guess.`,
         author: `@tngelo_aeixeira`,
+        shareImage: `https://angeloteixeira.me/share-image.jpg`
     },
     plugins: [
         `gatsby-plugin-react-helmet`,
