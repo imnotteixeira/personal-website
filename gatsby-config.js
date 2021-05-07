@@ -4,7 +4,8 @@ module.exports = {
         subtitles: ["software developer", "software enthusiast", "software learner", "software builder", "software explorer"],
         description: `It's a blog with some extras about me, I guess.`,
         author: `@tngelo_aeixeira`,
-        shareImage: `https://angeloteixeira.me/share-image.jpg`
+        shareImage: `https://angeloteixeira.me/share-image.jpg`,
+        siteUrl: `https://angeloteixeira.me`,
     },
     plugins: [
         `gatsby-plugin-react-helmet`,
@@ -98,6 +99,53 @@ module.exports = {
                 // icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
             },
         },
+        {
+            resolve: "gatsby-plugin-feed",
+            options: {
+                feeds: [
+                    {
+                        serialize: ({ query: { site, allMarkdownRemark } }) => {
+                            return allMarkdownRemark.edges.map(edge => {
+                              return Object.assign({}, edge.node.frontmatter, {
+                                description: edge.node.excerpt,
+                                date: edge.node.frontmatter.date,
+                                url: site.siteMetadata.siteUrl + edge.node.frontmatter.path,
+                                guid: site.siteMetadata.siteUrl + edge.node.frontmatter.path,
+                                custom_elements: [{ 'content:encoded': edge.node.html }],
+                              });
+                            });
+                          },
+                        query: `
+                        {
+                            allMarkdownRemark(
+                                sort: { fields: [frontmatter___date], order: DESC },
+                                filter: {
+                                    frontmatter: {
+                                        draft: {ne: true}
+                                    }
+                                }
+                            ) {
+                                edges {
+                                    node {
+                                        excerpt
+                                        html
+                                        fields { slug }
+                                        frontmatter {
+                                            title
+                                            date
+                                            path
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        `,
+                        title: "Angelo Teixeira's Blog",
+                        output: "/rss.xml",
+                    },
+                ],
+            },
+          }
         // this (optional) plugin enables Progressive Web App + Offline functionality
         // To learn more, visit: https://gatsby.dev/offline
         // 'gatsby-plugin-offline',

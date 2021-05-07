@@ -50,6 +50,12 @@ const IndexPage = ({ data }) => (
         <SEO title="Blog" />
         <Content>
             <h1>Blog</h1>
+            <p>
+                RSS feed available
+                {" "}
+                <a href="/rss.xml">here</a>
+                !
+            </p>
             {data.allMarkdownRemark.edges
                 .filter(({ node }) => {
                     if (process.env.NODE_ENV === "production" && node.frontmatter.draft) return false;
