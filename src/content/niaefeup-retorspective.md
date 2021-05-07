@@ -75,7 +75,7 @@ With this in mind, we decided to create a group and run for the following year's
 
 > Fun Fact: This decision was actually taken during ENEI's networking dinner, where students would register in order to be able to talk with company representatives and make contacts. Certainly useful for students ending their studies and looking for jobs. We, on our 2nd year (out of 5) were there as well, for some reason.
 
-We had two new "Flagship" projects to start, event ideas, and some internal changes we wanted to try and implement in terms of project organization.
+We had a new "flagship" project to start, event ideas, and some internal changes we wanted to try and implement in terms of project organization.
 
 The advantage of working with a Students' Branch should be the improvement in organization and manpower, resulting in increased ability to execute and finish large and ambitious projects. 
 
@@ -122,7 +122,7 @@ We prepared for the debate, in order to discuss both plans and held it with all 
 
 After the voting, we won and were appointed the new Board of NIAEFEUP for 2018-2019. 
 
-As a Global Project Manager, I'd be responsible for overseeing NIAEFEUP's projects on a high level, as well as 
+As a Global Project Manager, I'd be responsible for overseeing NIAEFEUP's projects on a high level, as well as guiding at least one of the Branch's projects.
 
 ![2018 Board](https://i.imgur.com/PbXDFCG.jpg)
 
@@ -146,7 +146,7 @@ September again, after my first Summer Internship I was ready to go at it again.
 
 The first two challenges were the SINF --- Yep, the full-week event we inherited was about to have its first edition under NIAEFEUP's organization --- and the recruitment process.
 
-The latter had been one of the pain points of the Board each year --- *remember when I received both the "You're in" and "You're out" emails regarding my application?*. Most of the process was manual, and still is to some extent, but I wanted to improve it and decided to implement some helping functionality to our website, allowing us to better control our recruitment seasons, by storing the applications, as well as the questions asked that year on interviews. Most importantly, it allowed us to automatically approve, reject batches of candidates instead of manually copy/pasting the relevant emails. Interview scheduling is still TBD.
+The latter had been one of the pain points of the Board each year --- *remember when I received both the "You're in" and "You're out" emails regarding my application?* Well, most of the process was manual, and still is to some extent, but I wanted to improve it and decided to implement some helping functionality to our website, allowing us to better control our recruitment seasons, by storing the applications, as well as the questions asked that year on interviews. Most importantly, it allowed us to automatically approve, reject batches of candidates instead of manually copy/pasting the relevant emails. Interview scheduling is still TBD.
 
 At that Summer Internship I had discovered this new amazing thing called React which, together with Node.js made up the base of our project's tech stack.
 
@@ -156,6 +156,8 @@ This was when the **NIJobs** idea surfaced, I wanted to apply this new knowledge
 
 This, together with **uni**, had a specific general student problem to solve, they had potential to grow over time (both could be extended to other courses and faculties, for example), fulfilling our informal slogan: *"From students, to students."*
 
+We now had 2 new "flagship" projects in mind. For many years, the good old [TimeTable Selector](https://ni.fe.up.pt/tts) was our most famous product. Now, it was time we would give it some company.
+
 So we started both projects. One was Mobile, another was a Web Application. From the beginning I decided this NIJobs would have a "3rd customer".
 
 Apart from benefiting companies and students, it should benefit NIAEFEUP members by being a source of knowledge and good practices, and until today, multiple projects (for our course and others) have been bootstrapped by cloning NIJobs repository, which makes me proud.
@@ -163,7 +165,6 @@ Apart from benefiting companies and students, it should benefit NIAEFEUP members
 ![](https://i.imgur.com/VwaKzSG.jpg)
 
 <p align="center" style="font-style:italic">The first mockup of NIJobs Homepage</p>
-
 
 In the beginning, a lot of people were excited to work on it, but eventually it was me and a couple more. It was the first time I was managing, or at least *guiding* a project this big and clearly I was not able to keep my workforce. It was nothing special, eventually people just naturally lost interest due to the lack of "goal accomplishments".
 
