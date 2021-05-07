@@ -54,7 +54,12 @@ exports.createPages = ({ graphql, actions }) => {
       return Promise.reject(result.errors)
     }
     result.data.allMarkdownRemark.edges
-      .filter(({ node }) => process.env.NODE_ENV !== "production" || !node.frontmatter.draft )
+      .filter(({ node }) => {
+          if(process.env.NODE_ENV === "production") {
+            return process.env.GATSBY_APP_ENV === "dev" || !node.frontmatter.draft
+          }
+          return true
+         })
       .forEach(({ node }) => {
         createPage({
           path: node.frontmatter.path,

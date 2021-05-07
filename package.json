@@ -47,6 +47,7 @@
   ],
   "license": "MIT",
   "scripts": {
+    "build-dev": "GATSBY_APP_ENV=dev gatsby build",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",

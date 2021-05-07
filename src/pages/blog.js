@@ -58,7 +58,8 @@ const IndexPage = ({ data }) => (
             </p>
             {data.allMarkdownRemark.edges
                 .filter(({ node }) => {
-                    if (process.env.NODE_ENV === "production" && node.frontmatter.draft) return false;
+                    if (process.env.NODE_ENV === "production" && process.env.GATSBY_APP_ENV !== "dev"
+                        && node.frontmatter.draft) return false;
                     const rawDate = node.frontmatter.rawDate;
                     const date = new Date(rawDate);
                     return date < new Date();
