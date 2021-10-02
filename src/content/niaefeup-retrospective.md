@@ -2,7 +2,7 @@
 title: "Working in an Informatics Students' Branch: A retrospective of my last 4 University years at NIAEFEUP"
 date: "2021-10-02"
 draft: false
-path: "/blog/niaefeup-retorspective"
+path: "/blog/niaefeup-retrospective"
 ---
 
 For the past 4 years, I was a part of NIAEFEUP, an Informatics Students' Branch. In this article I will dive deep on my experience as a Member, Project Manager and Board.
@@ -202,7 +202,7 @@ Skipping the whole COVID-19 thing, which obviously constituted a big change in o
 
 I developed a strategy to "capture" new talent to help me on **NIJobs**. Since I would target Rookies, which would be younger and with less experience, I knew they would feel they wouldn't have the required experience to help, so I suggested that the more experienced members should do a set of workshops on the technologies we use, in order to give younger folks some context and encourage them to start contributing to our projects right away. We held workshops on Git, Docker, Node.js+HTTP, React+JavaScript and Flutter.
 
-Apart from this, I started doing weekly meetings to share dev experience and progress. With this, I wanted new people to have context about the projects structure and current issues, while at the same time promoting a routine of contribution and sense of responsibility among the members. So far, it worked which makes me regret I haven't done it sooner. You live and you learn...
+Apart from this, I started doing weekly meetings to share dev experience and progress. With this, I wanted new people to have context about the projects structure and current issues, while at the same time promoting a routine of contribution and sense of responsibility among the members. So far, it has worked, which makes me regret I haven't done it sooner. You live and you learn...
 
 This is one of the reasons interviews at NIAEFEUP --- and at other Student Branches --- must be behavioral. It doesn't matter that people can code, it matters that they ***will*** code. As I've verified, as long as people are motivated and eager to learn and contribute, experience won't be a blocker. Older members should always try to pass on the knowledge for younger ones so that the wheel keeps on turning. I certainly am trying to do it.
 
