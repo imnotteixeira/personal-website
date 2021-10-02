@@ -73,7 +73,7 @@ With this in mind, we decided to create a group and run for the following year's
 
 ![](https://i.imgur.com/8sqPaSe.jpg)
 
-<p align="center" style="font-style:italic">From left to right: Henrique Lima (Global Projects Manager), Me (Global Projects Manager), Duarte Frazão (Enterprise Connections), Rui Alves (Secretary), Miguel Duarte (President). Four more people joined later for Treasury, Image and Branding, Event Planning and Vice-Presidency.</p>
+<p align="center" style="font-style:italic">From left to right: Henrique Lima (Global Projects Manager), Me (Global Projects Manager), Duarte Frazão (Enterprise Connections), Rui Alves (Secretary), Miguel Duarte (President). Three more people joined later for Treasury, Image and Branding, Event Planning and Vice-Presidency.</p>
 
 > Fun Fact: This decision was actually taken during ENEI's networking dinner, where students would register in order to be able to talk with company representatives and make contacts. Certainly useful for students ending their studies and looking for jobs. We, on our 2nd year (out of 5) were there as well, for some reason.
 
