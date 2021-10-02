@@ -1,22 +1,24 @@
 ---
 title: "Working in an Informatics Students' Branch: A retrospective of my last 4 University years at NIAEFEUP"
-date: "2021-05-07"
-draft: true
+date: "2021-10-02"
+draft: false
 path: "/blog/niaefeup-retorspective"
 ---
 
 For the past 4 years, I was a part of NIAEFEUP, an Informatics Students' Branch. In this article I will dive deep on my experience as a Member, Project Manager and Board.
 <!-- end_excerpt -->
 
-As my time at Faculdade de Engenharia comes to an end, so does my time at NIAEFEUP. As a software engineer, I am starting to get accustomed to looking back and analyzing past activities or work, as you often do in Agile development. 
+As my time at Faculdade de Engenharia da Universidade do Porto (FEUP) comes to an end, so does my time at NIAEFEUP. As a software engineer, I am starting to get accustomed to looking back and analyzing past activities or work, as you often do in Agile development. 
 
-This is the retrospective of **my** experience, and I hope it inspires younger peers to follow my steps and join NIAEFEUP --- or any branch, really. For current members, it will probably give you some context and history about NIAEFEUP, which might help you in the future.
+This is the retrospective of **my** experience, and I hope it inspires younger peers to follow my steps and join NIAEFEUP --- or any branch, really. For current members, it will probably give you some context and history about NIAEFEUP, which might help you in the future. 
+
+If you are a company representative --- specially for university connections --- I have something for you too, feel free to skip to year 2 onwards, if you want.
 
 ## Year 1 (2017-2018)
 
 ### Joining NIAEFEUP
 
-As with any story, this one starts with the main subject --- **_myself_** --- entering a different environment which will change the standard course of action. In this case, the environment was NIAEFEUP, and I decided to join as I was starting my second year of University (The recruitment is usually held once every year around October/November).
+As with any story, this one starts with the main character --- **_myself_** --- entering a different environment which will change the usual course of action. In this case, the environment was NIAEFEUP, and I decided to join as I was starting my second year of University (The recruitment is usually held once every year around October/November).
 
 First, there's an online form you must fill in order to apply, which is then analyzed by the current members. If there are no red flags, an interview is scheduled with the candidate.
 
@@ -195,7 +197,7 @@ We rely solely on people's goodwill and individual motivation. We cannot expect 
 
 Some things needed to change, I needed to gather a new work group from the next Rookies on the following year...
 
-## Year 4 (2020-today)
+## Year 4 (2020-2021)
 Skipping the whole COVID-19 thing, which obviously constituted a big change in our workflow --- we were unable to use our office and needed to go remote --- a new Board was in town. However, I'd keep my place as Project Manager of **NIJobs**, which in practice involves more work than the Global Project Manager role, since it targets the actual work of a project, on a lower level.
 
 I developed a strategy to "capture" new talent to help me on **NIJobs**. Since I would target Rookies, which would be younger and with less experience, I knew they would feel they wouldn't have the required experience to help, so I suggested that the more experienced members should do a set of workshops on the technologies we use, in order to give younger folks some context and encourage them to start contributing to our projects right away. We held workshops on Git, Docker, Node.js+HTTP, React+JavaScript and Flutter.
@@ -203,6 +205,16 @@ I developed a strategy to "capture" new talent to help me on **NIJobs**. Since I
 Apart from this, I started doing weekly meetings to share dev experience and progress. With this, I wanted new people to have context about the projects structure and current issues, while at the same time promoting a routine of contribution and sense of responsibility among the members. So far, it worked which makes me regret I haven't done it sooner. You live and you learn...
 
 This is one of the reasons interviews at NIAEFEUP --- and at other Student Branches --- must be behavioral. It doesn't matter that people can code, it matters that they ***will*** code. As I've verified, as long as people are motivated and eager to learn and contribute, experience won't be a blocker. Older members should always try to pass on the knowledge for younger ones so that the wheel keeps on turning. I certainly am trying to do it.
+
+## Future
+
+Since the beginning, I've always wanted NIJobs to be a *model project*, in the way that it would serve as a good example for future development of NIAEFEUP's projects. As I grew and gained more development experience, I started passing that knowledge and good practices to the next generation, who would be there to see it take shape, maintain it and, if possible, make it grow. Now I believe that the next step will be to pass on the ideas to build a perception of NIJobs on the product level. Most of NIJobs projects are just that: projects. The next step is to view them as products and gain knowledge in that area. By putting the consumers in the equation, we start to gain experience with metrics generation, quick bug tracking and fixing, and better prioritization of features. This is what NIAEFEUP was lacking up until now. This is what from now on, and until I can't do it due to time restrictions or other limitation, will try to pass to the team, to make them better future engineers. Many people can write projects, to build a product, however, it takes a very different set of skills that engineers can only benefit from having.
+
+The team is working on it and will be trying to release it soon (Q4 2021, or Q1 2022), so if you're reading this and think your company would benefit from a better and more direct connection to university students, by having better targeted job offers, contact me or the team at ni@aefeup.pt, and we'll get you on the early adopters, which will help us understand how to improve this connection between students and companies. Keep aware that you cannot expect a perfect product from day 1 (this is only an MVP, although very well polished in my opinion), what you can expect is a hard working team, that will give their best to improve the product matching both students and companies expectations.
+
+## Conclusion
+
+As you can probably tell, the outcome is very positive. I was able to grow technically and socially, ultimately leading to me being a better Software Engineer. As the recruitment approaches, I encourage every student to apply and write their own story, hopefully as positive as mine. As for the current NIAEFEUP members, always think forwards and big. That's the only way to make an organization grow and it will force you to deliver and improve in the end. Now is the time to fail, the future is reserved to the great achievements. Good luck. 🚀 
 
 ---
 
