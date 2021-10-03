@@ -170,7 +170,7 @@ Apart from benefiting companies and students, it should benefit NIAEFEUP members
 
 In the beginning, a lot of people were excited to work on it, but eventually it was me and a couple more. It was the first time I was managing, or at least *guiding* a project this big and clearly I was not able to keep my workforce. It was nothing special, eventually people just naturally lost interest due to the lack of "goal accomplishments".
 
-I believe that when starting a big project, you won't see the effects of your work in practice right away, as if it were an object abiding to Newton's first law. It takes a lot more effort to make something move when it is stopped than if it wore already moving.
+I believe that when starting a big project, you won't see the effects of your work in practice right away, as if it were an object abiding to Newton's first law. It takes a lot more effort to make something move when it is stopped than if it were already moving.
 
 This, along with the fact that I strived for attention to detail, meant that the project would start slowly. I was aware of this and called it an investment. I didn't want to create a project that had to be rebuilt or was really hard to contribute to just after I left. This priority in quality over time was important for me.
 
