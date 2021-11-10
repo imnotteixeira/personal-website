@@ -1,5 +1,5 @@
 ---
-title: "Creating an efficient spreadsheet application in React"
+title: "Creating an efficient spreadsheet application for the browser with React"
 date: "2021-11-08"
 draft: true
 path: "/blog/react-spreadsheet"
@@ -46,3 +46,26 @@ For this, we can divide the main challenge into smaller challenges, such as:
 * How to reference cells? How should be dependencies among cells be stored?
 * How to update dependent cells' values on dependency update?
 * How to express and parse Function expressions?
+
+## Part 1: Dependency Management
+
+In this section, we will explore the ways through which we can make cells update based on their dependencies, corresponding to the given cell function expression.
+
+The way I see it, there are 2 main ideas:
+
+* **Idea 1**: _Dependents_ register themselves in some sort of registry, and when _dependencies_ update, they query the registry and notify all their _dependents_ so that they update their values;
+* **Idea 2**: _Dependents_ are not notified when a _dependency_ changes. Instead, they poll for changes in the _dependencies_. For this, each cell must have its dependency tree pre-computed, so that we only query the relevant values;
+
+We must not forget the main challenge: We must support spreadsheets as big as possible, and to do that on the browser, we need to be clever... It might not be a good idea updating every cell when some dependency updates, especially if the change won't be **visible**.
+
+In contrast, every cell polling for changes might not be the most efficient computation work either. If the polling interval is big (updates are checked for less frequently), the spreadsheet won't seem responsive and fluid; If, on the contrary, the polling interval is low (updates are checked for frequently), the spreadsheet will update fluidly, but most of the polling will result in no updates, while straining our precious browser resources.
+
+In theory, we could (and should) only poll for the cells that are visible on the screen, and for which the updates will actually be impactful, but in any case, I don't feel like polling is the way to go, since the usual spreadsheet 1) does not mutate all (or most of the) cells many times over a short time period and 2) it would mean unnecessary calls were being made most of the time.
+
+Let's stick with **Idea 1** for now. How do dependents get notified, and which cells should we notify?
+
+### Notifying Updates
+(something with observer pattern or similar)
+
+### Optimizing notifications
+(We should only notify cells which will cause visual impact. need to compute the tree of dependencies, because even if one cell is not visible, it might need to be computed if a visible cell depends on it)
