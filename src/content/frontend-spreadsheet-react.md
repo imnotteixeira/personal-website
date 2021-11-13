@@ -3,7 +3,9 @@ title: "Creating an efficient spreadsheet application for the browser with React
 date: "2021-11-08"
 draft: true
 path: "/blog/react-spreadsheet"
+todo: ["dependency management", "cell function grammar definition"]
 ---
+
 
 It's 2021, and if you work in front of a computer, in some form or another, you probably have seen a spreadsheet with data and formulas *and a giant grid*. In general, giant things and browsers do not go well together, but we can at least try. It might be worth a good blog post...
 <!-- end_excerpt -->
@@ -18,11 +20,12 @@ This can get out of hand pretty quick, so I'll start putting some early limits. 
 
 Let's start with the following:
 
-* **EQUALS**: Copies the value from the referenced cell
+* **REF**: Copies the value from the referenced cell
 * **SUM**: Sums the values from **n** cells 
 * **SUBTRACT**: Subtracts the values from **n** cells
 * **MULTIPLY**: Multiplies the values from **n** cells
 * **DIVIDE**: Divides the value of a referenced cell over the value of another referenced cell
+* **EQUALS**: Compares 2 referenced cells' values, and returns true if they are the same value 
 * **AND**: Boolean AND between **n** referenced cells' values
 * **OR**: Boolean OR between **n** referenced cells' values
 * **NOT**: Boolean NOT of a referenced cell's value (or Boolean function expression)
@@ -42,10 +45,12 @@ Well, making a spreadsheet as a normal desktop application is already hard-work.
 For this, we can divide the main challenge into smaller challenges, such as:
 
 * How to efficiently update cells when a dependency updates?
+* How to express and parse Function expressions?
 * How to render the spreadsheet smoothly, especially when there are **way too many rows**?
 * How to reference cells? How should be dependencies among cells be stored?
 * How to update dependent cells' values on dependency update?
-* How to express and parse Function expressions?
+
+From here on out, I'm dedicating a section to each challenge, in order to fully explore each problem, please proceed with the scrolling...
 
 ## Part 1: Dependency Management
 
@@ -69,3 +74,35 @@ Let's stick with **Idea 1** for now. How do dependents get notified, and which c
 
 ### Optimizing notifications
 (We should only notify cells which will cause visual impact. need to compute the tree of dependencies, because even if one cell is not visible, it might need to be computed if a visible cell depends on it)
+
+## Part 2: Defining Functions
+
+Now that we know what to do when a dependency updates, we need to know how to get the dependencies of each cell, and how to compute the resulting value.
+
+We can start by defining every cell value to be _empty_ or the result of a **CellFunction**. A CellFunction can be a direct --- _or immediate_ --- value (e.g., 1, 2, 10, "a", "hello", true, false) or a combination of **CellFunctions**, which in turn can be an immediate value, or a combination of further **CellFunctions**. 
+
+The most important aspect of a CellFunction, is that it can represent the value of another cell. When this is the case, we know that it will be a dependency of the cell defining the CellFunction.
+
+Example of a CellFunction:
+
+```js
+// Returns `true` if the cell A1 has a value of -1, and `false` otherwise
+
+EQUALS(
+    // CellFunction SUM with two CellFunction arguments. 
+    // First one is immediate type, 
+    // Second one is a reference to other cell
+    SUM(1, REF(A1)), 
+    0
+)
+```
+
+### Executing CellFunctions - How to compute the cell's value?
+
+The most important part of a CellFunction, as you probably agree, is for it to result in a tangible value (or some error value, in case of errors 👀). For that to happen, we need to 1) know how to parse the CellFunction, and 2) how to compute the result.
+
+#### How to parse CellFunctions?
+
+For parsing expressions we'll need to define our grammar. This is gonna be interesting... One of the most used npm packages for this seems to be [nearley](https://nearley.js.org/), with around 10x the downloads of similar packages such as [ohm](https://github.com/harc/ohm), [pegjs](https://github.com/pegjs/pegjs), or [jison](https://github.com/zaach/jison). Since I don't know much about this area, I'm following the [trends](https://www.npmtrends.com/nearley-vs-ohm-js-vs-parsimmon-vs-peg-parser-vs-pegjs-vs-jison) and there seems to exist good documentation related with nearley, so that's nice.
+
+> I actually looked at the trends, you can do so for any npm package(s) here: https://www.npmtrends.com/
