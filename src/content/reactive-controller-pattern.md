@@ -14,7 +14,7 @@ I, too, have recently found myself in a similar situation. I decided I would tac
 | <br><br>
 | I recommend you to read it after this article to be aware of the problem and understand how to fix it!
 
-```jsx
+```jsx{numberLines: true}
 const DesktopVersion = () => (
     <BigComponent>
         <Button />
@@ -36,7 +36,7 @@ const MobileVersion = () => (
 
 Obviously, there needs to be a way to select which one to render, based on the device width (or other criteria, like meta-tags, for example). Since I was using [MaterialUI](https://material-ui.com/), I used its `useMediaQuery` hook for this purpose, but I'm certain you can find other implementations around the web as well. I wrapped it in a custom `useMobile` hook, that returns true if the width is mobile-sized, and listens for changes, updating in case it's necessary.
 
-```jsx
+```jsx{numberLines: true}
 const useMobile = () => 
     useMediaQuery((theme) => theme.breakpoints.only("xs"));
 
@@ -57,7 +57,7 @@ Once you have your app changing layouts correctly, you still need it to have som
 
 So, you start coding away your logic in each of the components, since they are different, and you might end up with something like this:
 
-```jsx
+```jsx{numberLines: true}
 
 const MobileVersion = () => {
 
@@ -91,7 +91,7 @@ const MobileVersion = () => {
 }
 ```
 
-```jsx
+```jsx{numberLines: true}
 const DesktopVersion = () => {
 
     const [name, setName] = useState("");
@@ -138,7 +138,7 @@ The main thing we need to do to fix this problem is to move the logic one level 
 
 This was what I did at first, it looked something like this:
 
-```jsx
+```jsx{numberLines: true}
 const MyPage = () => (
     <>
         <MyComponentController />
@@ -199,7 +199,7 @@ This is mostly ok in this scenario, except for the fact that we could have to pa
 
 Later on, I was working on generalizing the application pages' layout and I wanted something like this:
 
-```jsx
+```jsx{numberLines: true}
 const PageLayout = ({children, pageTitle}) => {
     const isMobile = useMobile()
 
@@ -247,7 +247,7 @@ We keep the basic principle that is to make state be shared between layouts, as 
 
 Then, we call `useComponentController` in the `WrapperComponent` to get a specific context provider, as well as any data returned by the controller.
 
-```js
+```js{numberLines: true}
 const {ContextProvider, ...data} = useComponentController(
     SpecificComponentController, 
     params, 
@@ -257,7 +257,7 @@ const {ContextProvider, ...data} = useComponentController(
 
 Then, the `WrapperComponent` simply needs to use the received `ContextProvider` to pass the data down the tree:
 
-```jsx
+```jsx{numberLines: true}
 const WrapperComponent = () => {
 
     const { ContextProvider } = useComponentController(
@@ -288,7 +288,7 @@ Also, no more passing *a million* props twice.
 
 #### useComponentController
 
-```js
+```js{numberLines: true}
 const useComponentController = (controller, controllerParams, Context) => {
 
     const { 
@@ -321,7 +321,7 @@ const useComponentController = (controller, controllerParams, Context) => {
 
 #### SpecificComponentController
 
-```js
+```js{numberLines: true}
 // Props can be passed when calling the useComponentController
 const SpecificComponentController = ({ initialCounter }) => {
 
@@ -356,7 +356,7 @@ const SpecificComponentController = ({ initialCounter }) => {
 
 #### WrapperComponent
 
-```js
+```js{numberLines: true}
 
 // Create and export a context for this component
 export const SpecificComponentControllerContext = React.createContext({});
@@ -384,7 +384,7 @@ const WrapperComponent = () => {
 
 #### MobileVersion
 
-```jsx
+```jsx{numberLines: true}
 
 const MobileVersion = () => {
 
@@ -416,7 +416,7 @@ const MobileVersion = () => {
 
 #### DesktopVersion
 
-```jsx
+```jsx{numberLines: true}
 const DesktopVersion = () => {
 
     const {

@@ -16,7 +16,7 @@ path: "/blog/reactive-controller-pattern-update"
 
 As you might recall from the previous post, the `useComponentController` hook had the following API:
 
-```js
+```js{numberLines: true}
 const {ContextProvider, ...data} = useComponentController(
     SpecificComponentController, 
     params, 
@@ -28,7 +28,7 @@ You give it the controller that handles the logic, based on the params, and a Re
 
 This was great since, in theory, when you used this hook, you just needed to have a tree like this:
 
-```js
+```js{numberLines: true}
 const MyComponent = () => {
     const {ContextProvider} = useComponentController(
         SpecificComponentController, 
@@ -52,7 +52,7 @@ No, let's dive into its actual behavior.
 
 Let's recall `useComponentController` implementation:
 
-```js
+```js{numberLines: true}
 const useComponentController = (controller, params, Context) => {
 
     const { 
@@ -102,7 +102,7 @@ Although this seems promising, we want it to update when we have a new value for
 
 So far, we've noticed that returning a modified provider component won't work because it will change every time. So, we need to follow the alternative which is to return what we will want to render, and with which props, and have the component create the custom Provider instead of creating it in the hook.
 
-```js
+```js{numberLines: true}
 const useComponentController(controller, params, Context) => {
 
     const { controllerOptions, ...controllerOutput } = controller(params);
@@ -121,7 +121,7 @@ As you can see, the hook now returns the instance of the Provider (which will de
 
 This involves changing the usage, so that the Components that call the `useComponentController` must render the Provider, with the received props as well, instead of simply `<ContextProvider>`
 
-```js
+```js{numberLines: true}
 const MyComponent = () => {
     const { 
         ContextProvider, 

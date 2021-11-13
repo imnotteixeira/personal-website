@@ -19,6 +19,15 @@ const HeaderDate = styled.h3`
   color: #606060;
 `;
 
+const TodoTitle = styled.h3`
+  margin-top: 10px;
+  color: #eb5b11;
+`;
+
+const TodoItem = styled.span`
+  color: #eb5b11;
+`;
+
 // STYLE THE TAGS INSIDE THE MARKDOWN HERE
 const MarkdownContent = styled.div`
   a {
@@ -107,6 +116,20 @@ export default ({ data }) => {
                     {" "}
                     {post.fields.readingTime.text}
                 </HeaderDate>
+                {post.frontmatter.draft && post.frontmatter.todo &&
+                    <>
+                        <TodoTitle>TODOs</TodoTitle>
+                        <ul>
+                            {post.frontmatter.todo.map((todo) =>
+                                <li key={todo}>
+                                    <TodoItem>
+                                        {todo}
+                                    </TodoItem>
+                                </li>
+                            )}
+                        </ul>
+                    </>
+                }
                 <MarkdownContent dangerouslySetInnerHTML={{ __html: post.html }} />
             </Content>
         </Layout>
@@ -122,6 +145,8 @@ export const pageQuery = graphql`
         date(formatString: "DD MMMM, YYYY")
         path
         title
+        todo
+        draft
       }
       fields {
         readingTime {
