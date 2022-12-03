@@ -54,6 +54,7 @@ exports.createPages = ({ graphql, actions }) => {
               path
               draft
               date
+              startDate
               todo
             }
             fields {

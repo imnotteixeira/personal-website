@@ -19,6 +19,12 @@ const HeaderDate = styled.h3`
   color: #606060;
 `;
 
+const StartDate = styled.h6`
+  margin-top: 0px;
+  color: #606060;
+  text-emphasis: italic
+`;
+
 const TodoTitle = styled.h3`
   margin-top: 10px;
   color: #eb5b11;
@@ -116,6 +122,13 @@ export default ({ data }) => {
                     {" "}
                     {post.fields.readingTime.text}
                 </HeaderDate>
+                {post.frontmatter.startDate &&
+                    <StartDate>
+                        Started writing at:
+                        {" "}
+                        {post.frontmatter.startDate}
+                    </StartDate>
+                }
                 {post.frontmatter.draft && post.frontmatter.todo &&
                     <>
                         <TodoTitle>TODOs</TodoTitle>
@@ -143,6 +156,7 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       frontmatter {
         date(formatString: "DD MMMM, YYYY")
+        startDate(formatString: "DD MMMM, YYYY")
         path
         title
         todo

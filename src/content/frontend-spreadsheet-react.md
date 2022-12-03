@@ -1,9 +1,10 @@
 ---
 title: "Creating an efficient spreadsheet application for the browser with React"
+startDate: "2021-11-08"
 date: "2021-11-08"
 draft: true
 path: "/blog/react-spreadsheet"
-todo: ["dependency management", "cell function grammar definition"]
+todo: ["dependency management", "cell function grammar definition - update code, still incomplete grammar", "https://nearley.js.org/docs/how-to-grammar-good"]
 ---
 
 
@@ -29,7 +30,7 @@ Let's start with the following:
 * **AND**: Boolean AND between **n** referenced cells' values
 * **OR**: Boolean OR between **n** referenced cells' values
 * **NOT**: Boolean NOT of a referenced cell's value (or Boolean function expression)
-* **AVG**: Returns the average value among a set of referenced cells' values (this is especially to implement a function that depends necessarily on an array of values)
+* **AVG**: Returns the average value among a set of referenced cells' values (this is here especially to require the implementation of a function that depends necessarily on an array of values)
 
 * Cells can represent a function that is composed of multiple other functions. 
 * Functions must specify the allowed inputs, so that there is the possibility of input validation
@@ -99,10 +100,48 @@ EQUALS(
 
 ### Executing CellFunctions - How to compute the cell's value?
 
-The most important part of a CellFunction, as you probably agree, is for it to result in a tangible value (or some error value, in case of errors 👀). For that to happen, we need to 1) know how to parse the CellFunction, and 2) how to compute the result.
+A CellFunction, as you probably agree, needs to result in a tangible value (or some error value, in case of errors 👀). For that to happen, we need to 1) know how to parse the CellFunction, and 2) how to compute the result.
 
 #### How to parse CellFunctions?
 
 For parsing expressions we'll need to define our grammar. This is gonna be interesting... One of the most used npm packages for this seems to be [nearley](https://nearley.js.org/), with around 10x the downloads of similar packages such as [ohm](https://github.com/harc/ohm), [pegjs](https://github.com/pegjs/pegjs), or [jison](https://github.com/zaach/jison). Since I don't know much about this area, I'm following the [trends](https://www.npmtrends.com/nearley-vs-ohm-js-vs-parsimmon-vs-peg-parser-vs-pegjs-vs-jison) and there seems to exist good documentation related with nearley, so that's nice.
 
 > I actually looked at the trends, you can do so for any npm package(s) here: https://www.npmtrends.com/
+
+Keep in mind that I know nothing(*) about defining grammars, but still, that's nothing a good documentation deep-dive and some trial and error can't fix. This to say that it probably won't be the best grammar definition you'll ever see, especially if you know your grammars, but still, I'll be happy if it can parse our functions!
+
+_(*) almost nothing_ 
+
+Here it goes:
+
+```abnf
+main 
+    -> EQUAL_SIGN statement {%  (data) => data[1] %}
+statement 
+    -> OPEN_PAR WHITESPACE (function | LITERAL) WHITESPACE CLOSE_PAR {%  (data) => data[2] %}
+function 
+    -> FN_KEYWORD (WHITESPACE argument):+  {%  (data) => ([data[0], ...data[1]]) %}
+argument 
+    -> OPEN_PAR WHITESPACE (function | LITERAL) WHITESPACE CLOSE_PAR {%  (data) => (data[2]) %}
+
+EQUAL_SIGN -> "=" {% id %}
+OPEN_PAR -> "(" {% id %}
+CLOSE_PAR -> ")" {% id %}
+FN_KEYWORD
+    -> REF {% id %}
+    |  SUM {% id %}
+    |  SUBTRACT {% id %}
+    |  MULTIPLY {% id %}
+    |  DIVIDE {% id %}
+    |  EQUALS {% id %}
+    |  AND {% id %}
+    |  OR {% id %}
+    |  NOT {% id %}
+    |  AVG {% id %}
+ 
+LITERAL -> ("a" | "c") {% id %}
+# Whitespace. The important thing here is that the postprocessor
+# is a null-returning function. This is a memory efficiency trick.
+WHITESPACE -> [ \t]:* {%  function(d) {return null; } %}
+
+```
