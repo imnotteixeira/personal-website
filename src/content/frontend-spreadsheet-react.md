@@ -41,13 +41,13 @@ The goal for this project is to have a client-side spreadsheet, so it must at le
 
 ## The challenge
 
-Well, making a spreadsheet as a normal desktop application is already hard-work. Sure, it's easy to make something that will work on a 10x10 grid, heck, even 100x100 is not the hardest problem to solve. If you want it to *scale*, that's the real challenge, especially on the browser.
+Making a spreadsheet as a normal desktop application is already hard-work. Sure, it's easy to make something that will work on a 10x10 grid, heck, even 100x100 is not the hardest problem to solve. If you want it to *scale*, that's the real challenge, especially on the browser.
 
 For this, we can divide the main challenge into smaller challenges, such as:
 
 * How to efficiently update cells when a dependency updates?
 * How to express and parse Function expressions?
-* How to render the spreadsheet smoothly, especially when there are **way too many rows**?
+* How to render the spreadsheet smoothly, especially when there are **way too many cells**?
 * How to reference cells? How should be dependencies among cells be stored?
 * How to update dependent cells' values on dependency update?
 
@@ -108,40 +108,9 @@ For parsing expressions we'll need to define our grammar. This is gonna be inter
 
 > I actually looked at the trends, you can do so for any npm package(s) here: https://www.npmtrends.com/
 
-Keep in mind that I know nothing(*) about defining grammars, but still, that's nothing a good documentation deep-dive and some trial and error can't fix. This to say that it probably won't be the best grammar definition you'll ever see, especially if you know your grammars, but still, I'll be happy if it can parse our functions!
+Keep in mind that I know nothing(*) about defining grammars, but still, that's nothing a good documentation deep-dive and some trial and error can't fix. This to say that it probably won't be the best grammar definition you'll ever see, especially if you know your grammars. But still, I'll be happy if it can parse our functions!
+
+... or so I thought. Turns out grammars are not that simple, so I had to pivot. Thankfully, I found [Parsimmon](https://github.com/jneen/parsimmon), which let me code the grammar in a more beginner-friendly way, completely in JavaScript (with TypeScript compatibility!). That's what I've used. You can learn more in the dedicated blog post about it: 
+## TODO: LINK GRAMMAR BLOG POST HERE
 
 _(*) almost nothing_ 
-
-Here it goes:
-
-```abnf
-main 
-    -> EQUAL_SIGN statement {%  (data) => data[1] %}
-statement 
-    -> OPEN_PAR WHITESPACE (function | LITERAL) WHITESPACE CLOSE_PAR {%  (data) => data[2] %}
-function 
-    -> FN_KEYWORD (WHITESPACE argument):+  {%  (data) => ([data[0], ...data[1]]) %}
-argument 
-    -> OPEN_PAR WHITESPACE (function | LITERAL) WHITESPACE CLOSE_PAR {%  (data) => (data[2]) %}
-
-EQUAL_SIGN -> "=" {% id %}
-OPEN_PAR -> "(" {% id %}
-CLOSE_PAR -> ")" {% id %}
-FN_KEYWORD
-    -> REF {% id %}
-    |  SUM {% id %}
-    |  SUBTRACT {% id %}
-    |  MULTIPLY {% id %}
-    |  DIVIDE {% id %}
-    |  EQUALS {% id %}
-    |  AND {% id %}
-    |  OR {% id %}
-    |  NOT {% id %}
-    |  AVG {% id %}
- 
-LITERAL -> ("a" | "c") {% id %}
-# Whitespace. The important thing here is that the postprocessor
-# is a null-returning function. This is a memory efficiency trick.
-WHITESPACE -> [ \t]:* {%  function(d) {return null; } %}
-
-```
